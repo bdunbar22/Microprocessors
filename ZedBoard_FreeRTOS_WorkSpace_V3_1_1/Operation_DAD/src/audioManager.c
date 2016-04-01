@@ -183,7 +183,7 @@ void audioManager_task (void *pArg) {
 	 *
 	 *
 	 */
-	output(sourceAngle, distance);
+	outputFound(sourceAngle, distance);
 }
 
 
