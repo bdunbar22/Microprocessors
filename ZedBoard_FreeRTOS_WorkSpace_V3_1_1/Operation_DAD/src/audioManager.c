@@ -149,4 +149,41 @@ void audioManager_task (void *pArg) {
   }
 }
 
+/**
+ * Determine the direction from which a sound is coming from.
+ * Call the output function with the direction and the distance if found.
+ * sourceAngle is in tenths of degrees aka source angle of 50 = 5 degrees.
+ * distance is in mm.
+ *
+ *@param pThis  pointer to own object
+ *
+ *@return 0 success, non-zero otherwise
+ **/
+void audioManager_task (void *pArg) {
+	//Get chunks
+
+	//Chunks must be large enough so that the phase difference can be found
+	int sourceAngle = 50;
+	int distance = 1200;
+
+
+	//Angle equation:
+	/*
+	 * Figure 12 shows the results of performing cross-correlation on the left and right onset signals as compared to the results of
+	 * using the original sampled sound signals. The peak of both cross-correlations occurs at an interaural delay of 11 samples.
+	 * If we assume the speed of sound to be 344 m/s given the conditions in the room, a sampling period of 1/44100, and a microphone
+	 * spacing of 0.3 m, Equation (1) may be used to calculate the angle to the speaker as sin(1(344(11/44100)/0.30) = 16.6 degrees.
+	 *
+	 * Therefor:
+	 * samplesDelay = find from chunk data.
+	 *
+	 * In the following: samplesDelay*SAMPLING_PERIOD could be something else but must be the time diff in seconds.
+	 *
+	 * sourceAngle = sin(1(SPEED_SOUND(samplesDelay*SAMPLING_PERIOD)/MIC_DISTANCE);
+	 *
+	 *
+	 */
+	output(sourceAngle, distance);
+}
+
 
