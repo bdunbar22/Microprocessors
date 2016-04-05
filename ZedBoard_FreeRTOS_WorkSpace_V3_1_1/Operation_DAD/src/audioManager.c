@@ -59,7 +59,7 @@
 /**
  * Define the sampling period being used by the microphones
  */
-#define SAMPLING_PERIOD 1/44100
+#define SAMPLING_FREQUENCY 1/48000
 
 /** initialize audio player 
  *@param pThis  pointer to own object 
@@ -171,7 +171,7 @@ void audioManager_process (chunk_d_t **pChunk) {
 
 	//Chunks must be large enough so that the phase difference can be found
 	
-    int samplesDelay = 11;
+    int samplesDelayed = 11;
 
 	//Angle equation:
     //Units for speed are defined in m/s
@@ -179,10 +179,10 @@ void audioManager_process (chunk_d_t **pChunk) {
     //samples delay is an integer
     //Sampling period is a frequency
     //source Angle is calculated in degrees
-	int sourceAngle = sin(1(SPEED_SOUND(samplesDelay*SAMPLING_PERIOD)/MIC_DISTANCE);
+	int sourceAngle = sin(1(SPEED_SOUND(samplesDelayed*SAMPLING_FREQUENCY)/MIC_DISTANCE);
 	//Give tenths of degrees
     sourceAngle = sourceAngle * 10;
-
+    //Not calculated at this point in time.
     int distance = 0;
 	outputFound(sourceAngle, distance);
 }
