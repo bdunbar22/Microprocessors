@@ -44,6 +44,22 @@
  */
 #define VOLUME_MIN (0x2F)
 
+/**
+ * Provide constant speed of sound
+ * 344 m/s
+ */
+#define SPEED_SOUND 344
+
+/**
+ * Provide constant distance between the two microphones 45mm
+ * Use units of meters
+ */
+#define MIC_DISTANCE 0.045
+
+/**
+ * Define the sampling period being used by the microphones
+ */
+#define SAMPLING_PERIOD 1/44100
 
 /** initialize audio player 
  *@param pThis  pointer to own object 
@@ -51,7 +67,7 @@
  *@return 0 success, non-zero otherwise
  **/
 int audioManager_init(audioPlayer_t *pThis) {
-    int                         status                  = 0;
+    int status = 0;
     
     printf("[AP]: Init start\r\n");
     
@@ -128,23 +144,14 @@ void audioManager_task (void *pArg) {
         return;
     }
 
-    /* Start the audio TX module */
-    //status = audioTx_start(&pThis->tx);
-	if ( 1 != status) {
-    	/* how to indicate startup failure ?*/
-        return;
-    }
-
 	/* main loop */
 	while(1) {
     	/** get audio chunk */
 		status = audioRx_get(&pThis->rx, &pThis->chunk);
 
-        /** If we have chunks that can be played then we provide them
-         * to the audio TX */
+        /** If we have chunks that can be processed then do so */
         if ( 1 == status ) {
-          /** play audio chunk through speakers */
-          //TODO: will call the processing function for chunks of stereo audio data
+        	audioManager_process(&pThis->chunk);
         }
   }
 }
@@ -159,30 +166,24 @@ void audioManager_task (void *pArg) {
  *
  *@return 0 success, non-zero otherwise
  **/
-void audioManager_task (void *pArg) {
+void audioManager_process (chunk_d_t **pChunk) {
 	//Get chunks
 
 	//Chunks must be large enough so that the phase difference can be found
-	int sourceAngle = 50;
-	int distance = 1200;
-
+	
+    int samplesDelay = 11;
 
 	//Angle equation:
-	/*
-	 * Figure 12 shows the results of performing cross-correlation on the left and right onset signals as compared to the results of
-	 * using the original sampled sound signals. The peak of both cross-correlations occurs at an interaural delay of 11 samples.
-	 * If we assume the speed of sound to be 344 m/s given the conditions in the room, a sampling period of 1/44100, and a microphone
-	 * spacing of 0.3 m, Equation (1) may be used to calculate the angle to the speaker as sin(1(344(11/44100)/0.30) = 16.6 degrees.
-	 *
-	 * Therefor:
-	 * samplesDelay = find from chunk data.
-	 *
-	 * In the following: samplesDelay*SAMPLING_PERIOD could be something else but must be the time diff in seconds.
-	 *
-	 * sourceAngle = sin(1(SPEED_SOUND(samplesDelay*SAMPLING_PERIOD)/MIC_DISTANCE);
-	 *
-	 *
-	 */
+    //Units for speed are defined in m/s
+    //Units for length are defined in m
+    //samples delay is an integer
+    //Sampling period is a frequency
+    //source Angle is calculated in degrees
+	int sourceAngle = sin(1(SPEED_SOUND(samplesDelay*SAMPLING_PERIOD)/MIC_DISTANCE);
+	//Give tenths of degrees
+    sourceAngle = sourceAngle * 10;
+
+    int distance = 0;
 	outputFound(sourceAngle, distance);
 }
 
