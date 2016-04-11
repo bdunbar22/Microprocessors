@@ -168,10 +168,10 @@ void audioManager_task (void *pArg) {
  **/
 void audioManager_process (chunk_d_t **pChunk) {
 	//Get chunks
-
+    
 	//Chunks must be large enough so that the phase difference can be found
 	
-    int samplesDelayed = 11;
+    int samplesDelayed = 4;
 
 	//Angle equation:
     //Units for speed are defined in m/s
@@ -179,7 +179,12 @@ void audioManager_process (chunk_d_t **pChunk) {
     //samples delay is an integer
     //Sampling period is a frequency
     //source Angle is calculated in degrees
-	int sourceAngle = sin(1(SPEED_SOUND(samplesDelayed*SAMPLING_FREQUENCY)/MIC_DISTANCE);
+    //Our calculations will work when the two signals are between -4 and 4 samples
+    //different in terms of capturing a discrete point of sound.
+	int sourceAngle = sin^-1(SPEED_SOUND(samplesDelayed/SAMPLING_FREQUENCY)/MIC_DISTANCE);
+    //This calculated angle is the angle away from the line that is equidistant from each 
+    //microphone, which is 90 degrees in our analysis.
+    sourceAngle = 90 + sourceAngle;
 	//Give tenths of degrees
     sourceAngle = sourceAngle * 10;
     //Not calculated at this point in time.
