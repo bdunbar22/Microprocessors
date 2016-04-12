@@ -54,12 +54,12 @@
  * Provide constant distance between the two microphones 45mm
  * Use units of meters
  */
-#define MIC_DISTANCE 0.045
+#define MIC_DISTANCE 0.0327279
 
 /**
  * Define the sampling period being used by the microphones
  */
-#define SAMPLING_FREQUENCY 1/48000
+#define SAMPLING_FREQUENCY 48000
 
 /** initialize audio player 
  *@param pThis  pointer to own object 
@@ -168,8 +168,23 @@ void audioManager_task (void *pArg) {
  **/
 void audioManager_process (chunk_d_t **pChunk) {
 	//Get chunks
+    if ( NULL == pThis || NULL == pChunk ) {
+        printf("[TX]: Failed to get samples.\r\n");
+        return -1;
+    }
     
-	//Chunks must be large enough so that the phase difference can be found
+    //Add chunk to the window.
+    if(pThis->running != 0) {
+        xQueueSend(pThis->queue, &pChunk, 0);
+        return 0;
+    }
+    //Once queue is large enough will need to start popping.
+    /* receive pointer to chunk structure from Tx_queue,
+        Note: when ISR running, audioTx_put should send the chunk to Tx_queue */
+    //xQueueReceive(pThis->queue, &pChunk, NULL);
+
+    //TODO: get # samples phase difference from current snapshot of this FIFO.
+	//Run a 
 	
     int samplesDelayed = 4;
 
