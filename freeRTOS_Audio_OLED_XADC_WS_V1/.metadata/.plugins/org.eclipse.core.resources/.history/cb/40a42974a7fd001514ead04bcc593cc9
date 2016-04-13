@@ -1,0 +1,10 @@
+/* Credits to : http://embeddedcentric.com/customized-hardware-design-and-integration/ */
+
+int main(void){
+
+print_message("Hello",0);
+print_message("World",2);
+print_message("How cool is this",3);
+
+return 0;
+}

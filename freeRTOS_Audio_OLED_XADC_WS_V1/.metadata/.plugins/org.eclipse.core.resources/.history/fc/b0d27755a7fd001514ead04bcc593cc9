@@ -1,0 +1,13 @@
+/*
+ * oled.c
+ *
+ *  Created on: Dec 13, 2015
+ *      Author: Surya
+ */
+
+int main(void){
+print_message("Surya",0);
+print_message("Hello world",2);
+print_message("How cool is this",3);
+return 0;
+}
