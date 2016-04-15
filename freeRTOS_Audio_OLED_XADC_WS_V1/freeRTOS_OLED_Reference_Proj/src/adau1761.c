@@ -204,10 +204,4 @@ void adau1761_regWrite(tAdau1761 *pThis, unsigned char u8RegAddr, unsigned char 
 	while(XIicPs_BusIsBusy(&pThis->Iic));
 }
 
-void audioPlayer_setvolume(audioPlayer_t *pThis){
 
-	// Supports only for Mono as of now.
-	adau1761_regWrite(&pThis->codec, R31_PLAYBACK_LINE_OUTPUT_LEFT_VOLUME_CONTROL, pThis->volume);
-	adau1761_regWrite(&pThis->codec, R32_PLAYBACK_LINE_OUTPUT_RIGHT_VOLUME_CONTROL, pThis->volume);
-
-}

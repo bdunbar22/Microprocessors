@@ -84,7 +84,9 @@ static void output_task( void *pvParameters )
 				
 				
 				//Update OLED display
-				
+				print_message("Hello",0);
+				print_message("World",2);
+				print_message("How cool is this",3);
 			}
 		}
 	}

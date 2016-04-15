@@ -41,7 +41,7 @@
  * @brief  global audio player object
  */
     
-audioPlayer_t            audioManager;
+audioManager_t            audioManager;
 
 
 int main(void)
@@ -52,6 +52,11 @@ int main(void)
 
     audioManager_start(&audioManager);
 
+    output_init();
+
+    output_start();
+
+    test_start();
 
 	// start the OS scheduler to kick off the tasks.
 	vTaskStartScheduler();

@@ -20,7 +20,7 @@
 #include "adau1761.h"
 #include "zedboard_freertos.h"
 #include "stdio.h"
-#include <cmath>
+#include <math.h>
 
 /* number of chunks to allocate */
 //TODO: up to 30 once heap size is increased
@@ -64,6 +64,11 @@
  * Define the sampling period being used by the microphones
  */
 #define SAMPLING_FREQUENCY 48000
+
+/**
+ * Need pi for calculations of angles.
+ */
+#define PI 3.14159265
 
 /** initialize audio player 
  *@param pThis  pointer to own object 
@@ -199,7 +204,10 @@ void audioManager_process (void *pArg, chunk_d_t **pChunk) {
     //source Angle is calculated in degrees
     //Our calculations will work when the two signals are between -4 and 4 samples
     //different in terms of capturing a discrete point of sound.
-	double sourceAngle = asin(SPEED_SOUND(samplesDelayed/SAMPLING_FREQUENCY)/MIC_DISTANCE);
+    double ratio = (double) SPEED_SOUND * (samplesDelayed/SAMPLING_FREQUENCY)/MIC_DISTANCE;
+	double sourceAngle = asin(ratio);
+	//source angle to degrees
+	sourceAngle = sourceAngle * 180.0/PI;
     //This calculated angle is the angle away from the line that is equidistant from each 
     //microphone, which is 90 degrees in our analysis.
     int angle = 90 + (int) sourceAngle;
