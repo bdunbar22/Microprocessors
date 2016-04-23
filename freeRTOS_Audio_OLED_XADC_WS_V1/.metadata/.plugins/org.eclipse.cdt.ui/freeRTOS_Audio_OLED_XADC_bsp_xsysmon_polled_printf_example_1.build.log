@@ -1,6 +1,0 @@
-10:20:01 **** Incremental Build of configuration Debug for project freeRTOS_Audio_OLED_XADC_bsp_xsysmon_polled_printf_example_1 ****
-make all 
-make: Nothing to be done for `all'.
-
-10:20:01 Build Finished (took 147ms)
-

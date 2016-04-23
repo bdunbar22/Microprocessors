@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;freeRTOS_OLED_Reference_Proj/Test_Proj/src/main.c&apos; to &apos;mainBill.c&apos;" description="Rename resource &apos;main.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Test_Proj/src/main.c" name="mainBill.c" stamp="1460507846501" updateReferences="true"/>
-</session>
