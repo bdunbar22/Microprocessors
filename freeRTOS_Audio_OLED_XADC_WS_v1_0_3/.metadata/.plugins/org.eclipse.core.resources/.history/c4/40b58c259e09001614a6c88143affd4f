@@ -1,0 +1,145 @@
+
+#include "zedboard_freertos.h"
+#include "Audio_Output.h"
+#include "Queue.h"
+#include "ZedboardOLED.h"
+
+
+/* Define QueueHandle */
+QueueHandle_t positionUpdateQ;
+
+static int currentPos;
+
+static int currentDist;
+
+
+void outputFound( int sourceAngle, int distance )
+{
+
+	if (sourceAngle >= 0 && sourceAngle <= 1800)
+	{
+		//printf("Angle sent to Q: %d\n", sourceAngle);
+		xQueueSend(positionUpdateQ, (void*) &sourceAngle, 0);
+	}
+
+	return;
+}
+
+
+/* GPIO Task */
+static void output_task( void *pvParameters )
+{
+
+	/* setup interrupts
+	 * Note: needs to be called in task context as GIC is initialized
+	 * upon starting of multi tasking.
+	 */
+	
+	
+	printf("Output task running\n");
+	for(;;){
+		
+		int *newPos;
+		if( xQueueReceive( positionUpdateQ, (void*) &newPos, (TickType_t) 0)) {
+			
+			//printf("xQueueReceived\n");
+			printf("New pos: %d    Current Pos: %d\n", *newPos, currentPos);
+			if(*newPos != currentPos)
+			{
+				currentPos = *newPos;
+				printf("New output: %d\n", *newPos);
+				
+				//Update LEDs
+				if((currentPos/225) == 0)
+				{
+					*(u32 *)GPIO_DATA_2 = 0x01;
+				}
+				else if((currentPos/225) == 1)
+				{
+					*(u32 *)GPIO_DATA_2 = 0x02;
+				}
+				else if((currentPos/225) == 2)
+				{
+					*(u32 *)GPIO_DATA_2 = 0x04;
+				}
+				else if((currentPos/225) == 3)
+				{
+					*(u32 *)GPIO_DATA_2 = 0x08;
+				}
+				else if((currentPos/225) == 4)
+				{
+					*(u32 *)GPIO_DATA_2 = 0x10;
+				}
+				else if((currentPos/225) == 5)
+				{
+					*(u32 *)GPIO_DATA_2 = 0x20;
+				}
+				else if((currentPos/225) == 6)
+				{
+					*(u32 *)GPIO_DATA_2 = 0x40;
+				}
+				else if((currentPos/225) >= 7)
+				{
+					*(u32 *)GPIO_DATA_2 = 0x80;
+				}
+				
+				
+				//Update OLED display
+				clear_OLED();
+				char oled_angle[30];
+				char oled_dist[30];
+				sprintf(oled_angle, "Angle: %d", currentPos);
+				sprintf(oled_dist, "Distance: %dm", currentDist);
+
+				print_message(oled_angle,0);
+				print_message(oled_dist,2);
+			}
+		}
+		else
+		{
+			vTaskDelay(5);
+		}
+	}
+
+
+	// suspend this task. All activities are in interrupts.
+	vTaskSuspend(NULL);
+}
+
+
+
+
+/**
+ * Initialize the GPIO
+ *
+ * Parameters:
+ *
+ * @return void
+ */
+void output_init(void) {
+
+	printf("Output init\n");
+    /* OutEnable for LEDs which is top 8 bits need to be set to 1 */
+	*(volatile u32 *)GPIO_DIRM_2 = 0xFF;
+    *(volatile u32 *)GPIO_OEN_2 =  0xFF;
+
+    *(u32 *)GPIO_DATA_2 = 0x01;
+    currentPos = 0;
+
+    /* Create a queue capable of containing 10 unsigned long values. */
+    positionUpdateQ = xQueueCreate(10, sizeof(int));
+
+}
+
+/**
+ *
+ *
+ * Parameters:
+ *
+ * @return void
+ */
+void output_start(void)
+{
+	printf("Output_start\n");
+	xTaskCreate( output_task, ( signed char * ) "HW", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1 , NULL );
+}

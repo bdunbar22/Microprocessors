@@ -26,11 +26,10 @@
 typedef struct {
   audioRxTx_t      	Audio;  /* transmit/recieve object */
   bufferPool_d_t   	bp;  /* buffer pool */
-  int 				volume;	/* Volume of the audio player */
-  unsigned int 	    frequency;	/* Frequency of the audio player */
-  chunk_d_t         *chunk;  /* Chunk for copy */
-  tAdau1761 		codec;  /* audio codec */
-  convolveQueue  	convQueue; /*Queue to help process data */
+  int 					volume;	/* Volume of the audio player */
+  unsigned int 	frequency;	/* Frequency of the audio player */
+  chunk_d_t            *chunk;  /* Chunk for copy */
+  tAdau1761 codec;  /* audio codec */
 } audioPlayer_t;
 
 /** initialize audio player 

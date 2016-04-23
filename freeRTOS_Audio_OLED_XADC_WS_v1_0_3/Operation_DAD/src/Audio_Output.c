@@ -2,6 +2,7 @@
 #include "zedboard_freertos.h"
 #include "Audio_Output.h"
 #include "Queue.h"
+#include "ZedboardOLED.h"
 
 
 /* Define QueueHandle */
@@ -19,6 +20,7 @@ void outputFound( int sourceAngle, int distance )
 	{
 		//printf("Angle sent to Q: %d\n", sourceAngle);
 		xQueueSend(positionUpdateQ, (void*) &sourceAngle, 0);
+		currentDist = distance;
 	}
 
 	return;
@@ -42,11 +44,11 @@ static void output_task( void *pvParameters )
 		if( xQueueReceive( positionUpdateQ, (void*) &newPos, (TickType_t) 0)) {
 			
 			//printf("xQueueReceived\n");
-			printf("New pos: %d    Current Pos: %d\n", newPos, currentPos);
-			if(newPos != currentPos)
+			printf("New pos: %d    Current Pos: %d\n", *newPos, currentPos);
+			if(*newPos != currentPos)
 			{
-				currentPos = newPos;
-				printf("New output: %d\n", newPos);
+				currentPos = *newPos;
+				printf("New output: %d\n", *newPos);
 				
 				//Update LEDs
 				if((currentPos/225) == 0)
@@ -84,10 +86,19 @@ static void output_task( void *pvParameters )
 				
 				
 				//Update OLED display
-				print_message("Hello",0);
-				print_message("World",2);
-				print_message("How cool is this",3);
+				clear_OLED();
+				char oled_angle[30];
+				char oled_dist[30];
+				sprintf(oled_angle, "Angle: %d", currentPos);
+				sprintf(oled_dist, "Distance: %dm", currentDist);
+
+				print_message(oled_angle,0);
+				print_message(oled_dist,2);
 			}
+		}
+		else
+		{
+			vTaskDelay(5);
 		}
 	}
 
@@ -113,8 +124,9 @@ void output_init(void) {
 	*(volatile u32 *)GPIO_DIRM_2 = 0xFF;
     *(volatile u32 *)GPIO_OEN_2 =  0xFF;
 
-    *(u32 *)GPIO_DATA_2 = 0x01;
-    currentPos = 0;
+    *(u32 *)GPIO_DATA_2 = 0xFF;
+    currentPos = 900;
+    currentDist = 0;
 
     /* Create a queue capable of containing 10 unsigned long values. */
     positionUpdateQ = xQueueCreate(10, sizeof(int));
@@ -131,5 +143,5 @@ void output_init(void) {
 void output_start(void)
 {
 	printf("Output_start\n");
-	xTaskCreate( output_task, ( signed char * ) "HW", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1 , NULL );
+	xTaskCreate( output_task, ( signed char * ) "HW", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL );
 }

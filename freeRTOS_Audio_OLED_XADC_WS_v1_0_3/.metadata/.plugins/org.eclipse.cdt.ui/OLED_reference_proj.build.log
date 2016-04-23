@@ -1,4 +1,6 @@
+18:58:21 **** Incremental Build of configuration Debug for project OLED_reference_proj ****
+make all 
+make: Nothing to be done for `all'.
 
-**** Build of configuration Debug for project OLED_reference_proj ****
+18:58:22 Build Finished (took 169ms)
 
-Nothing to build for project OLED_reference_proj

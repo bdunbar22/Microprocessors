@@ -10,11 +10,12 @@ C_SRCS += \
 ../src/Audio_Output.c \
 ../src/Test_Task.c \
 ../src/adau1761.c \
-../src/audioManager.c \
+../src/audioPlayer.c \
 ../src/audioRxTx.c \
 ../src/audioSample.c \
 ../src/bufferPool_d.c \
 ../src/chunk_d.c \
+../src/convolveQueue.c \
 ../src/main.c \
 ../src/snd_sample.c 
 
@@ -22,11 +23,12 @@ OBJS += \
 ./src/Audio_Output.o \
 ./src/Test_Task.o \
 ./src/adau1761.o \
-./src/audioManager.o \
+./src/audioPlayer.o \
 ./src/audioRxTx.o \
 ./src/audioSample.o \
 ./src/bufferPool_d.o \
 ./src/chunk_d.o \
+./src/convolveQueue.o \
 ./src/main.o \
 ./src/snd_sample.o 
 
@@ -34,11 +36,12 @@ C_DEPS += \
 ./src/Audio_Output.d \
 ./src/Test_Task.d \
 ./src/adau1761.d \
-./src/audioManager.d \
+./src/audioPlayer.d \
 ./src/audioRxTx.d \
 ./src/audioSample.d \
 ./src/bufferPool_d.d \
 ./src/chunk_d.d \
+./src/convolveQueue.d \
 ./src/main.d \
 ./src/snd_sample.d 
 

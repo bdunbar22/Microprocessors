@@ -58,3 +58,227 @@
 20:20:33 INFO  : Processor reset is completed for ps7_cortexa9_0
 20:25:33 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
 20:25:36 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:45:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:45:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+20:45:27 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:45:48 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+20:45:52 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:46:10 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+20:46:14 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:50:52 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+20:51:55 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+20:51:57 INFO  : XSDB server has started successfully.
+20:52:55 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+20:52:57 INFO  : XSDB server has started successfully.
+20:55:46 INFO  : ps7_init is completed.
+20:55:46 INFO  : ps7_post_config is completed.
+20:55:48 INFO  : Processor reset is completed for ps7_cortexa9_0
+20:55:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:56:00 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+20:56:03 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+20:56:20 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+20:56:25 INFO  : Processor reset is completed for ps7_cortexa9_0
+21:27:18 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+14:06:34 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+14:06:36 INFO  : XSDB server has started successfully.
+14:26:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:26:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+14:26:36 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+14:27:29 INFO  : ps7_init is completed.
+14:27:29 INFO  : ps7_post_config is completed.
+14:27:30 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:28:45 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:31:22 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:32:03 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:32:26 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:33:00 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:46:05 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:46:50 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:48:00 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:53:18 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:54:53 INFO  : Processor reset is completed for ps7_cortexa9_0
+14:57:13 INFO  : Processor reset is completed for ps7_cortexa9_0
+15:08:44 INFO  : Processor reset is completed for ps7_cortexa9_0
+15:10:45 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+15:10:51 INFO  : Processor reset is completed for ps7_cortexa9_0
+15:11:31 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+15:11:38 INFO  : Processor reset is completed for ps7_cortexa9_0
+15:18:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:18:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+15:18:19 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+15:44:58 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+16:12:41 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+16:12:43 INFO  : XSDB server has started successfully.
+16:13:57 INFO  : ps7_init is completed.
+16:13:57 INFO  : ps7_post_config is completed.
+16:13:58 INFO  : Processor reset is completed for ps7_cortexa9_0
+16:19:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:19:19 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+16:19:28 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+16:20:00 INFO  : ps7_init is completed.
+16:20:00 INFO  : ps7_post_config is completed.
+16:20:01 INFO  : Processor reset is completed for ps7_cortexa9_0
+16:39:58 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+16:40:01 INFO  : Processor reset is completed for ps7_cortexa9_0
+16:43:35 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+16:43:51 INFO  : Processor reset is completed for ps7_cortexa9_0
+16:44:01 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Target selection failed.
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.debugApplication(XilinxAppLaunchConfigurationDelegate.java:806)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:311)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+16:45:41 INFO  : Processor reset is completed for ps7_cortexa9_0
+16:46:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:46:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+16:47:05 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+16:51:50 INFO  : Processor reset is completed for ps7_cortexa9_0
+16:51:59 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Target selection failed.
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.debugApplication(XilinxAppLaunchConfigurationDelegate.java:806)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:311)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+16:52:17 INFO  : Processor reset is completed for ps7_cortexa9_0
+16:52:27 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Target selection failed.
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.debugApplication(XilinxAppLaunchConfigurationDelegate.java:806)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:311)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+16:53:06 INFO  : Processor reset is completed for ps7_cortexa9_0
+16:53:16 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Target selection failed.
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.debugApplication(XilinxAppLaunchConfigurationDelegate.java:806)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:311)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+16:53:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:53:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+16:53:59 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+16:54:12 INFO  : ps7_init is completed.
+16:54:12 INFO  : ps7_post_config is completed.
+16:54:13 INFO  : Processor reset is completed for ps7_cortexa9_0
+17:01:43 INFO  : Processor reset is completed for ps7_cortexa9_0
+17:01:53 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Target selection failed.
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.debugApplication(XilinxAppLaunchConfigurationDelegate.java:806)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:311)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+17:02:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:02:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+17:02:10 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+17:03:26 INFO  : Processor reset is completed for ps7_cortexa9_0
+17:07:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:07:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+17:08:05 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+17:15:44 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+17:16:08 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+17:16:10 INFO  : XSDB server has started successfully.
+17:53:17 INFO  : ps7_init is completed.
+17:53:17 INFO  : ps7_post_config is completed.
+17:53:18 INFO  : Processor reset is completed for ps7_cortexa9_0
+17:53:45 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+17:53:51 INFO  : Processor reset is completed for ps7_cortexa9_0
+17:54:23 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+17:54:27 INFO  : Processor reset is completed for ps7_cortexa9_0
+17:56:33 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+17:56:38 INFO  : Processor reset is completed for ps7_cortexa9_0
+17:59:03 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+17:59:07 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:06:07 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+18:06:10 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:15:29 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:15:43 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Write to PC Register failed
+
+    Cannot flush JTAG buffers
+
+	at com.xilinx.sdk.targetmanager.internal.TM.continueExecution(TM.java:749)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:150)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+18:15:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:15:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+18:15:57 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+18:16:28 INFO  : ps7_init is completed.
+18:16:28 INFO  : ps7_post_config is completed.
+18:16:29 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:17:15 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+18:17:19 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:17:19 ERROR : Unexpected error while opening JTAG UART: 
+java.lang.RuntimeException: Error while opening JTAG UART server: MDM Uart NOT Present in the System
+Could not detect MDM peripheral on hardware. Please check:
+    1. If FPGA is configured correctly
+    2. MDM Core is instantiated in the design
+    3. If the correct FPGA is referred, in case of multiple FPGAs
+    4. If the correct MDM is referred, in case of a multiple MDM system
+    
+
+	at com.xilinx.sdk.targetmanager.internal.TM.startJTAGUARTServer(TM.java:951)
+	at com.xilinx.sdk.debug.core.internal.comm.JTAGUARTStreamsProxy.<init>(JTAGUARTStreamsProxy.java:32)
+	at com.xilinx.sdk.debug.core.internal.RemoteProcess.createStreamsProxy(RemoteProcess.java:164)
+	at com.xilinx.sdk.debug.core.internal.RemoteProcess.<init>(RemoteProcess.java:65)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:91)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+18:17:35 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+18:17:37 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:17:39 ERROR : Port COM4 is already in use.
+18:20:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:20:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+18:20:17 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+18:20:28 INFO  : ps7_init is completed.
+18:20:29 INFO  : ps7_post_config is completed.
+18:20:29 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:20:31 ERROR : Port COM4 is already in use.
+18:20:48 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+18:20:52 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:21:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:21:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248707841" && level==0} -index 1' command is executed.
+18:22:01 INFO  : FPGA configured successfully with bitstream "C:/Users/Bill/Desktop/WS_1_0_3/freeRTOS_Audio_OLED_XADC_WS_v1_0_3/system_wrapper_hw_platform_0/system_wrapper.bit"
+18:22:13 INFO  : ps7_init is completed.
+18:22:13 INFO  : ps7_post_config is completed.
+18:22:14 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:25:15 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+18:25:19 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:25:44 INFO  : ps7_cortexa9_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+18:25:47 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:43:55 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:48:32 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:56:37 INFO  : Processor reset is completed for ps7_cortexa9_0
+18:58:24 INFO  : Processor reset is completed for ps7_cortexa9_0
+19:01:12 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 

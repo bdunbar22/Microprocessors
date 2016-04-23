@@ -48,15 +48,8 @@ int main(void)
 
     audioPlayer_start(&audioPlayer);
 
-    output_init();
-
-    output_start();
-
-    print_message("Current Angle:", 0);
-
-    print_message("0", 3);
-
 	// start the OS scheduler to kick off the tasks.
 	vTaskStartScheduler();
 	return(0);
+
 }

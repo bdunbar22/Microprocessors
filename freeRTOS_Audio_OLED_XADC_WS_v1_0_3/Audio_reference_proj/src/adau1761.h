@@ -12,7 +12,7 @@ typedef struct {
 
 
 												/* Function Prototypes */
-unsigned char Adau1761_Init(tAdau1761 *pThis);
+unsigned char adau1761_init(tAdau1761*);
 
 void ReadSamples(unsigned int*, unsigned int);
 

@@ -9,6 +9,7 @@
 #define MIC 1
 #define LINE_MIC 2
 
+
 /* Initializes I2C/I2S/CODEC and AXI Streaming FIFO */
 unsigned char Adau1761_Init(tAdau1761 *pThis)
 {

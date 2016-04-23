@@ -1,4 +1,4 @@
-src/adau1761.o src/adau1761.d: ../src/adau1761.c ../src/audioManager.h \
+src/adau1761.o src/adau1761.d: ../src/adau1761.c ../src/audioRxTx.h \
  ../src/bufferPool_d.h ../src/chunk_d.h ../src/zedboard_freertos.h \
  ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/FreeRTOS.h \
  ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/FreeRTOSConfig.h \
@@ -47,9 +47,10 @@ src/adau1761.o src/adau1761.d: ../src/adau1761.c ../src/audioManager.h \
  ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/xuartps_hw.h \
  ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/xiicps.h \
  ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/xiicps_hw.h \
- ../src/audioRxTx.h ../src/adau1761.h ../src/audioSample.h
+ ../src/adau1761.h ../src/audioSample.h ../src/audioPlayer.h \
+ ../src/convolveQueue.h ../src/Audio_Output.h
 
-../src/audioManager.h:
+../src/audioRxTx.h:
 
 ../src/bufferPool_d.h:
 
@@ -151,8 +152,12 @@ src/adau1761.o src/adau1761.d: ../src/adau1761.c ../src/audioManager.h \
 
 ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/xiicps_hw.h:
 
-../src/audioRxTx.h:
-
 ../src/adau1761.h:
 
 ../src/audioSample.h:
+
+../src/audioPlayer.h:
+
+../src/convolveQueue.h:
+
+../src/Audio_Output.h:

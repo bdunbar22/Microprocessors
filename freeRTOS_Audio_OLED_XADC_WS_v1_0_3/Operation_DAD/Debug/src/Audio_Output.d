@@ -48,7 +48,8 @@ src/Audio_Output.o src/Audio_Output.d: ../src/Audio_Output.c \
  ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/xiicps.h \
  ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/xiicps_hw.h \
  ../src/Audio_Output.h \
- ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/Queue.h
+ ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/Queue.h \
+ ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/ZedboardOLED.h
 
 ../src/zedboard_freertos.h:
 
@@ -149,3 +150,5 @@ src/Audio_Output.o src/Audio_Output.d: ../src/Audio_Output.c \
 ../src/Audio_Output.h:
 
 ../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/Queue.h:
+
+../../freeRTOS_Audio_Oled_XADC_bsp/ps7_cortexa9_0/include/ZedboardOLED.h:
