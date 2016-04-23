@@ -1,0 +1,61 @@
+/**
+ *@file audioPlayer.h
+ *
+ *@brief
+ *  - core module for audio player
+ *
+ * Target:   TLL6527v1-0      
+ * Compiler: VDSP++     Output format: VDSP++ "*.dxe"
+ *
+ * @author  Gunar Schirner
+ *          Rohan Kangralkar
+ * @date 03/15/2009
+ *
+ * LastChange:
+ * $Id: audioPlayer.h 812 2013-03-12 02:28:57Z ovaskevi $
+ *
+ *******************************************************************************/
+#ifndef _AUDIO_MANAGER_H_
+#define _AUDIO_MANAGER_H_
+
+#include "bufferPool_d.h"
+#include "audioRx.h"
+#include "adau1761.h"
+
+/** audioManager object
+ */
+typedef struct {
+  audioRxTx_t      	rx;  /* receive object */
+  bufferPool_d_t   	bp;  /* buffer pool */
+  int 				volume;	/* Volume of the audio manager */
+  unsigned int 		frequency;	/* Frequency of the audio manager */
+  QueueHandle_t    	queue; /* Creating a FIFO for processing */
+  chunk_d_t            *chunk;  /* Chunk for copy */
+  tAdau1761 codec;  /* audio codec */
+} audioManager_t;
+
+/** initialize audio manager
+ *@param pThis  pointer to own object 
+ *
+ *@return 0 success, non-zero otherwise
+ **/
+int audioManager_init(audioManager_t *pThis);
+
+/** startup phase after initialization 
+ *@param pThis  pointer to own object 
+ *
+ *@return 0 success, non-zero otherwise
+ **/
+int audioManager_start(audioManager_t *pThis);
+
+/** main loop of audio player does not terminate
+ *@param pThis  pointer to own object 
+ *
+ *@return 0 success, non-zero otherwise
+ **/
+void audioManager_task(void *pArg);
+
+#endif
+
+
+

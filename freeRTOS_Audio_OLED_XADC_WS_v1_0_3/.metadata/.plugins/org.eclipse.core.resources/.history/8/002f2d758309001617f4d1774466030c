@@ -1,0 +1,210 @@
+/**
+ *@file audioPlayer.c
+ *
+ *@brief
+ *  - core module for audio player
+ *
+ * Target:   Xilinx Zynq Zedboard
+ * Compiler/IDE: GCC - Xilinx SDK 2015.4
+ *
+ * @author:  Gunar Schirner
+ *           Rohan Kangralkar
+ * @date	03/08/2010
+ *
+ * LastChange:
+ * $Id: audioPlayer.c 1009 2016-04-03 20:00:02Z surya2891 $
+ *
+ *******************************************************************************/
+
+#include "audioPlayer.h"
+#include "zedboard_freertos.h"
+#include "audioRxTx.h"
+
+/***************************************************
+            DEFINES
+***************************************************/
+
+/* number of chunks to allocate */
+#define CHUNK_NUM 30
+
+/* size of each chunk in bytes */
+#define CHUNK_SIZE 512
+
+/**
+ * @def VOLUME_CHANGE_STEP
+ * @brief Magnitude of change in the volume when increasing or decreasing
+ */
+#define VOLUME_CHANGE_STEP (4)
+
+/**
+ * @def VOLUME_MAX
+ * @brief MAX volume possible is +6db Refer to COCDEC datasheet.
+ */
+#define VOLUME_MAX (0x7F)
+
+/**
+ * @def VOLUME_MIN
+ * @brief MIN volume possible is -73db Refer to COCDEC datasheet.
+ */
+#define VOLUME_MIN (0x2F)
+
+/**
+ * Provide constant speed of sound
+ * 344 m/s
+ */
+#define SPEED_SOUND 344
+
+/**
+ * Provide constant distance between the two microphones 45mm
+ * Use units of meters
+ */
+#define MIC_DISTANCE 0.0327279
+
+/**
+ * Define the sampling period being used by the microphones
+ */
+#define SAMPLING_FREQUENCY 48000
+
+/**
+ * Need pi for calculations of angles.
+ */
+#define PI 3.14159265
+
+
+/***************************************************
+            Methods
+***************************************************/
+
+/** initialize audio player 
+ *@param pThis  pointer to the AudioPlayer global instance.
+ *
+ *@return 0 success, non-zero otherwise
+ **/
+int audioPlayer_init(audioPlayer_t *pThis) {
+    int status = 0;
+    printf("[AP]: Initialize start\r\n");
+    
+    pThis->volume 		= VOLUME_MIN; /*default volume */
+    pThis->frequency 	= 48000; /* default frequency */
+    
+    /* Init I2C/I2S/CODEC and AXI Streaming FIFO */
+    Adau1761_Init(&pThis->codec);
+
+	/* Allocate buffer pool and Init Chunk/freelist*/
+	status = bufferPool_d_init(&pThis->bp, CHUNK_NUM, CHUNK_SIZE);
+    if ( PASS != status ) {
+        return FAIL;
+    }
+
+    /* Initialize the Audio RX/TX module*/
+    status = audioRxTx_init(&pThis->Audio, &pThis->bp) ;
+    if ( PASS != status) {
+        return FAIL;
+    }
+
+    /* Initialize the helper queue */
+    convolveQueue_init(pThis->convQueue);
+
+    printf("[AP]: Init complete\r\n");
+    return PASS;
+}
+
+
+/** audioPlayer task creation.
+ *@param pThis  pointer to the globally declared and initialized audioPlayer object
+ *
+ *@return 0 success, non-zero otherwise
+ **/
+int audioPlayer_start(audioPlayer_t *pThis)
+{
+    printf("[AP]: startup \r\n");
+	/* Audio Player task creation */
+	xTaskCreate( audioPlayer_task, ( signed char * ) "HW", configMINIMAL_STACK_SIZE, pThis, tskIDLE_PRIORITY + 2, NULL );
+    return PASS;
+}
+
+
+
+/** main loop of audio player does not terminate
+ *@param pThis  pointer to the globally declared and initialized audioPlayer object
+ *
+ *@return 0 success, non-zero otherwise
+ **/
+void audioPlayer_task (void *pArg) {
+    
+	print_message("Hello world",2);
+
+	int status = FAIL;
+	audioPlayer_t *pThis = (audioPlayer_t *)  pArg;
+	chunk_d_t *pChunk = NULL;
+
+    /* Start the audio module (FIFO Interrupt Enable)*/
+    status = audioRxTx_start(&pThis->Audio);
+	if (status != 1) {
+        return;
+    }
+
+	/* Main loop */
+	while(1)
+	{
+    		/** Get Audio Chunk */
+			audioRxTx_get(&pThis->Audio, &pChunk);
+
+			/* Transmit the data that was received from the RX Queue */
+			audioPlayer_process(&pThis->Audio, pChunk);
+    }
+}
+
+
+/**
+ * Determine the direction from which a sound is coming from.
+ * Call the output function with the direction and the distance if found.
+ * sourceAngle is in tenths of degrees aka source angle of 50 = 5 degrees.
+ * distance is in mm.
+ *
+ *@param pThis  pointer to own object
+ *
+ *@return 0 success, non-zero otherwise
+ **/
+void audioPlayer_process (void *pArg, chunk_d_t **pChunk) {
+	audioPlayer_t *pThis = (audioPlayer_t *)  pArg;
+	//Get chunks
+    if (pThis == NULL || pChunk == NULL) {
+        printf("[TX]: Failed to get samples.\r\n");
+        return;
+    }
+
+    //Add chunk to the window.
+    convolveQueue_push(pThis->convQueue, *pChunk);
+
+    if(!convolveQueue_ready(pThis->convQueue)) {
+    	return;
+    }
+    //Once queue is large enough will need to start popping.
+    convolveQueue_pop(pThis->convQueue);
+
+
+    int samplesDelayed = 4;
+
+	//Angle equation:
+    //Units for speed are defined in m/s
+    //Units for length are defined in m
+    //samples delay is an integer
+    //Sampling period is a frequency
+    //source Angle is calculated in degrees
+    //Our calculations will work when the two signals are between -4 and 4 samples
+    //different in terms of capturing a discrete point of sound.
+    double ratio = (double) SPEED_SOUND * (samplesDelayed/SAMPLING_FREQUENCY)/MIC_DISTANCE;
+	double sourceAngle = asin(ratio);
+	//source angle to degrees
+	sourceAngle = sourceAngle * 180.0/PI;
+    //This calculated angle is the angle away from the line that is equidistant from each
+    //microphone, which is 90 degrees in our analysis.
+    int angle = 90 + (int) sourceAngle;
+	//Give tenths of degrees
+    angle = angle * 10;
+    //Not calculated at this point in time.
+    int distance = 0;
+	outputFound(angle, distance);
+}
+

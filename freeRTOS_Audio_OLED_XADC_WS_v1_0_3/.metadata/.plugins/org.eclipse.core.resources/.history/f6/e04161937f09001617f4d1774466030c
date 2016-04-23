@@ -1,0 +1,85 @@
+/*
+ * convolveQueue.h
+ *
+ *  Created on: Apr 23, 2016
+ *      Author: Ben
+ */
+
+/***************************************************
+            DEFINES
+***************************************************/
+/**
+ * @def Convolve queue
+ */
+#ifndef SRC_CONVOLVEQUEUE_H_
+#define SRC_CONVOLVEQUEUE_H_
+
+/***************************************************
+            DATA TYPES
+***************************************************/
+
+/**
+ * convolveQueue object
+ * The convolve queue stores a left and right array of ints.
+ * This queue is special because it allows for performing a
+ * specialized convolve operation on the left and right arrays.
+ */
+typedef struct {
+  unsigned int      left;  /* transmit/recieve object */
+  unsigned int   	right;  /* buffer pool */
+} convolveQueue;
+
+/***************************************************
+            Access Methods
+***************************************************/
+
+/** Initialize audio tx
+ *    - get pointer to buffer pool
+ *    - register interrupt handler
+ *    - initialize TX queue
+
+ * Parameters:
+ * @param pThis  pointer to own object
+ * @param pBuffP  pointer to buffer pool to take and return chunks from
+ * @param pIsrDisp   pointer to interrupt dispatcher to get ISR registered
+ *
+ * @return Zero on success.
+ * Negative value on failure.
+ */
+int convolveQueue_init(audioRxTx_t *pThis, bufferPool_d_t *pBuffP);
+
+/** start audio tx
+ *   - empthy for now
+ * Parameters:
+ * @param pThis  pointer to own object
+ *
+ * @return Zero on success.
+ * Negative value on failure.
+ */
+int convolveQueue_push(audioRxTx_t *pThis);
+
+/**
+ * Return 1 if the convolve queue has reached the usable size.
+ */
+int convolveQueue_ready();
+
+/**
+ * Allow the queue to pop an item off of each list.
+ *
+ * @return None
+ */
+void convolveQueue_pop();
+
+/**
+ * Determines the number of sample readings that the left array has to be moved over for the
+ * max value of the convolution of the arrays to appear.
+ * Finds both the positive and negative number of times it has to be moved and then
+ * returns the one with the least absolute value.
+ *
+ * @return the int phase diff.
+ */
+int convolveQueue_getSampleCountPhaseDiff();
+
+
+
+#endif /* SRC_CONVOLVEQUEUE_H_ */
